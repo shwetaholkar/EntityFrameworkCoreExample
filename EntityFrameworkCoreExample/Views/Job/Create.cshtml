@@ -1,0 +1,33 @@
+﻿@model Job
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="container">
+    <form method="post" asp-controller="Job" asp-action="CreateJob">
+        <div class="row">
+            <div class="form-control">
+                <label>Job-Name</label>
+                <input type="text" asp-for="Name" />
+            </div>
+
+            <div class="form-control">
+                <label>Min-salary</label>
+                <input type="text" asp-for="MinSalary" />
+            </div>
+
+            <div class="form-control">
+                <label>Max-salary</label>
+                <input type="text" asp-for="MaxSalary" />
+            </div>
+
+            <div class="form-control">
+                <input type="submit" values="Submit" />
+                <input type="reset" values="Cancel" />
+            </div>
+        </div>
+    </form>
+</div>

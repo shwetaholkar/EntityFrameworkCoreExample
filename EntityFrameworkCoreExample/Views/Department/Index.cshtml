@@ -1,0 +1,63 @@
+﻿
+@model List<Department>
+
+
+
+   @* <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <th>DepartmentId</th>
+                    <th>DepartmentName</th>
+                    <th>LocationName</th>
+                </thead>
+                <tbody>
+                    @foreach(var dept in Model)
+                    {
+                    <tr>
+                        <th>@dept.Id</th>
+                        <th>@dept.Name</th>
+                        <th>@dept.Location.Name</th>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>*@
+
+
+   
+<h1>Department List</h1>
+
+<div>
+    <a asp-controller="Department" asp-action="Create">Create New Department</a>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+    <tr>
+        <td>Id</td>
+        <td>Department Name</td>
+        <td>Location-Ref-Id</td>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var dept in Model)
+    {
+        <tr>
+            <td>@dept.Id</td>
+            <td>@dept.Name</td>
+            <td>@dept.LocationRefId</td>
+           
+            <td>
+                <a asp-controller="Department" asp-action="Details" asp-route-id="@dept.Id">Details</a> | 
+                <a asp-controller="Department" asp-action="Update" asp-route-id="@dept.Id">Edit</a> |
+                <a asp-controller="Department" asp-action="Delete" asp-route-id="@dept.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+

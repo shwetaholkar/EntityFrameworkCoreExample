@@ -1,0 +1,38 @@
+﻿@*@model List<Employee>*@
+
+@model List<EntityFrameworkCoreExample.Models.Employee>
+
+
+
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>EmployeeId</th>
+                    <th>EmployeeName</th>
+                    <th>Salary</th>
+                    <th>Address</th>
+                    <th>Department-Name</th>
+                    <th>Job-Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var emp in Model)
+                {
+                    <tr>
+                        <th>@emp.Id</th>
+                        <th>@emp.Name</th>
+                        <th>@emp.Salary</th>
+                        <th>@emp.Address</th>
+                        <th>@emp.Department.Name</th>
+                        <th>@emp.Job.Name</th>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

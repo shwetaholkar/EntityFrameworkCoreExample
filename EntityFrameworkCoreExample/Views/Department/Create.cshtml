@@ -1,0 +1,53 @@
+﻿@model Department
+
+@*<div class="container">
+    <form method="post" asp-controller="Department" asp-action="CreateDepartment">
+        <div class="row">
+            <div class="form-control">
+                <label>Department-Name</label>
+                <input type="text" asp-for="Name" />
+            </div>
+            <div class="form-control">
+                <label>Location-Id</label>
+                 @{
+                    using var employeeContext = new EmployeeContext();
+                    var data = employeeContext.Locations.ToList();
+                    var selectBox = new SelectList(data, "Id", "Name");
+                }
+                <select asp-for="LocationRefId" class="form-control" asp-items="selectBox" ></select>
+               
+                @*<input type="text" asp-for="LocationRefId" />*@
+           @*@ </div>
+            <div class="form-control">
+                <input type="submit" values="Submit" />
+                <input type="reset" values="Cancel" />
+            </div>
+        </div>
+    </form>
+</div>
+*@
+
+
+
+<h1>Create new Department</h1>
+
+<form asp-controller="Department" asp-action="Create" method="post">
+    <table class="table table-bordered table-striped table-hover">
+        <tbody>
+            <tr>
+                <th>Department Name</th>
+                <td><input asp-for="Name" type="text" class="form-control" /></td>
+            </tr>
+            <tr>
+                <th>Location-Ref-Id</th>
+                <td><input asp-for="LocationRefId" type="text" class="form-control" /></td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Create Department</button>
+      
+    </div>
+</form>

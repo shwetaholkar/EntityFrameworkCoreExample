@@ -1,0 +1,26 @@
+﻿@model List<Location>
+
+
+
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+                <th>Location_id</th>
+                <th>LocationName</th>
+                <th>Pin Code</th>
+            </thead>
+            <tbody>
+                @foreach(var loc in Model)
+                {
+                <tr>
+                    <td>@loc.Id</td>
+                    <td>@loc.Name</td>
+                    <td>@loc.Pincode </td>
+                </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
