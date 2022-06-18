@@ -36,7 +36,7 @@ namespace EntityFrameworkCoreExample.Controllers
             return View();
         }
 
-        [HttpPost] // when we want to use post method , must include HttpPost
+        [HttpPost] 
         public async Task<IActionResult> Create(Department department)
         {
             var departmentService = new DepartmentService();
@@ -44,8 +44,6 @@ namespace EntityFrameworkCoreExample.Controllers
 
             return RedirectToAction("Create");
         }
-
-
 
         //[HttpPost]
         //public IActionResult CreateDepartment(Department department)
@@ -56,6 +54,39 @@ namespace EntityFrameworkCoreExample.Controllers
         //    return RedirectToAction("Create");
         //}
 
+
+        public async Task<IActionResult> Update(int id)
+        {
+            var departmentService = new DepartmentService();
+            var department = await departmentService.GetByIdAsync(id);
+
+            return View(department);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(Department department)
+        {
+            var departmentService = new DepartmentService();
+            await departmentService.UpdateAsync(department);
+
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var departmentService = new DepartmentService();
+            var department = await departmentService.GetByIdAsync(id);
+
+            return View(department);
+        }
+
+        public async Task<IActionResult> DeleteDepartment(int id)
+        {
+            var departmentService = new DepartmentService();
+            await departmentService.DeleteAsync(id);
+
+            return RedirectToAction("Index");
+        }
 
 
     }
